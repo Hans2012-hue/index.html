@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAYMENT HANS JB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at center, #3a0066 0%, #000000 70%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="2" fill="%23ffffff" opacity="0.5" /><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.3" /><circle cx="150" cy="150" r="1" fill="%23ffffff" opacity="0.3" /></svg>');
+        }
+        
+        .container {
+            background: rgba(20, 0, 40, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 0 40px #8a2be2;
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+            border: 1px solid #6a0dad;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            background: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 25px;
+            border-bottom: 1px solid #6a0dad;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            color: #b967ff;
+            text-shadow: 0 0 15px #8a2be2;
+        }
+        .header p {
+            color: #d8bfd8;
+            font-size: 16px;
+        }
+        
+        .black-hole {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #000000 30%, #4b0082 70%, #8a2be2 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 30px #8a2be2;
+        }
+        .content {
+            padding: 25px;
+        }
+        
+        .payment-method {
+            margin-bottom: 25px;
+        }
+        
+        .method-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #b967ff;
+            font-size: 18px;
+        }
+        .method-title i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        
+        .account-details {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #6a0dad;
+        }
+        .account-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #b967ff;
+            margin: 10px 0;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px #8a2be2;
+            word-break: break-all;
+        }
+        
+        .account-name {
+            color: #d8bfd8;
+            margin-bottom: 15px;
+        }
+        .copy-btn {
+            background: linear-gradient(to right, #4b0082, #8a2be2);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin: 10px 0;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .copy-btn:hover {
+            background: linear-gradient(to right, #8a2be2, #4b0082);
+            box-shadow: 0 0 20px #8a2be2;
+            transform: translateY(-2px);
+        }
+        
+        .copy-btn i {
+            margin-right: 8px;
+        }
+        .qris-section {
+            text-align: center;
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            border: 1px solid #6a0dad;
+        }
+        .qris-placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: linear-gradient(45deg, #3a0066, #6a0dad);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            border: 2px solid #b967ff;
+        }
+        .qris-placeholder i {
+            font-size: 64px;
+            color: #b967ff;
+        }
+        
+        .whatsapp-btn {
+            display: block;
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        .whatsapp-btn:hover {
+            background: linear-gradient(to right, #128C7E, #25D366);
+            box-shadow: 0 0 20px #25D366;
+            transform: translateY(-2px);
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4b0082;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #8a2be2;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            border: 1px solid #b967ff;
+            display: flex;
+            align-items: center;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #9370db;
+            font-size: 14px;
+            border-top: 1px solid #6a0dad;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            .account-number {
+                font-size: 18px;
+            }
+            
+            .qris-placeholder {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="black-hole"></div>
+            <h1> PAYMENT HANS JB⚡</h1>
+            <p>Transfer Pembayaran dengan Metode Berikut</p>
+        </div>
+        
+        <div class="content">
+            <!-- DANA -->
+            <div class="payment-method">
+                <div class="method-title">
+                    <i class="fas fa-wallet"></i>
+                    <h2>DANA</h2>
+                </div>
+                <div class="account-details">
+                    <div class="account-number" id="dana-number">083199023256</div>
+                    <div class="account-name">A/N: TARINI</div>
+                    <button class="copy-btn" data-number="083199023256">
+                      <i class="fas fa-copy"></i> Salin Nomor DANA
+                    </button>
+                </div>
+            </div>
+            
+            <!-- GOPAY -->
+            <div class="payment-method">
+                <div class="method-title">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h2>GOPAY</h2>
+                </div>
+                <div class="account-details">
+                  <div class="account-number" id="gopay-number">089648075522</div>
+                    <div class="account-name">A/N: TARINI</div>
+                    <button class="copy-btn" data-number="089648075522">
+                        <i class="fas fa-copy"></i> Salin Nomor GOPAY
+                    </button>
+                </div>
+            </div>
+            <!-- BANK KROM -->
+            <div class="payment-method">
+                <div class="method-title">
+                    <i class="fas fa-university"></i>
+                    <h2>BANK KROM</h2>
+                </div>
+                <div class="account-details">
+                    <div class="account-number" id="bank-number">770010962012</div>
+                    <div class="account-name">A/N: TARINI</div>
+                    <button class="copy-btn" data-number="770010962012">
+                        <i class="fas fa-copy"></i> Salin Nomor Rekening
+                    </button>
+                </div>
+            </div>
+            
+            <!-- QRIS -->
+            <div class="qris-section">
+              <h2 style="color: #b967ff; margin-bottom: 15px;">QRIS</h2>
+                <p style="color: #d8bfd8; margin-bottom: 15px;">Scan kode QR untuk pembayaran</p>
+                <div class="qris-image">
+                  <img src="https://imgur.com/a/X4T52wK" alt="QRIS Payment Code">
+                  
+                </div>
+                <p style="color: #d8bfd8; margin-top: 15px; font-style: italic;">SCAN QRIS INI</p>
+            </div>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/+6289648075522" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Hubungi Admin via WhatsApp
+            </a>
+        </div>
+        
+        <footer>
+            <p>© 2024 HANS Payment • Support: +62 896-4807-5522</p>
+        </footer>
+    </div>
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-text">Nomor berhasil disalin!</span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notification-text');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const numberToCopy = this.getAttribute('data-number');
+                    
+                    // Membuat textarea sementara untuk menyalin teks
+                    const textArea = document.createElement('textarea');
+                    textArea.value =numberToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    
+                    try {
+                        // Menyalin teks ke clipboard
+                        const successful = document.execCommand('copy');
+                        
+                        if (successful) {
+                            // Mengubah teks notifikasi
+                            notificationText.textContent = `Berhasil disalin: ${numberToCopy}`;
+                            
+                            // Menampilkan notifikasi
+                            notification.classList.add('show');
+                            
+                            // Menghilangkan notifikasi setelah 3 detik
+                            setTimeout(function() {
+                                notification.classList.remove('show');
+                            }, 3000);
+                        }
+                    } catch (err) {
+                        console.error('Tidak dapat menyalin teks: ', err);
+                    }
+                    
+                    // Menghapus textarea sementara
+                    document.body.removeChild(textArea);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
